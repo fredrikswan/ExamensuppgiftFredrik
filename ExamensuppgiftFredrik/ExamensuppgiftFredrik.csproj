@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="scripts\app\components\EventArchive\EventArchiveItem.jsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="scripts\app\components\EventArchive\EventArchiveItem.jsx" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,39 @@
+﻿@model ExamensuppgiftFredrik.Models.ViewModels.EventArchiveViewModel
+
+@{
+    var guid = Guid.NewGuid();
+    var eventArchiveHref = $"/scripts/app/components/EventArchive/EventArchive.min.css?v=" + guid;
+    var jobsHref = $"/scripts/app/components/Jobs/Jobs.min.css?v=" + guid;
+}
+
+<link rel="preload" href="@eventArchiveHref" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="@eventArchiveHref"></noscript>
+<link rel="preload" href="@jobsHref" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="@jobsHref"></noscript>
+
+@Html.React("Components.EventArchive", new
+{
+    eventList = Model.EventList,
+    header = Model.CurrentPage.Header,
+    menuData = Model.MainMenuData,
+    btnText = Model.CurrentPage.BtnText,
+    eventItemsToShow = Model.EventItemsToShow,
+    eventItemsToShowPerClick = Model.EventItemsToShowPerClick,
+    urlToSearchPage = Model.LinkToSearchPage,
+    urlToJobsPage = Model.LinkToJobsPage,
+    searchBtn = Model.SearchButton,
+    searchBoxPH = Model.SearchBoxPlaceholder,
+    searchBoxClose = Model.SearchBoxClose,
+    articleTypes1 = Model.ArticleTypes[1],
+    articleTypes = Model.ArticleTypes,
+    heroImage = Model.HeroImage,
+    heroHeader = Model.HeroTitle,
+    heroText = Model.HeroText,
+    hideHero = Model.HideHero,
+    heroImageFocusSmallScreen = Model.HeroImageFocusSmallScreen,
+})
+
+@Html.React("Components.Footer", new
+{
+    data = Model.FooterData
+})
